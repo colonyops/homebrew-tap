@@ -3,7 +3,7 @@ cask "hive" do
   name "hive"
   desc "CLI/TUI for managing multiple AI agent sessions in isolated git environments"
   homepage "https://github.com/colonyops/hive"
-  version "0.32.1"
+  version "0.33.0"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,23 +14,35 @@ cask "hive" do
   on_macos do
     on_intel do
       url "https://github.com/colonyops/hive/releases/download/v#{version}/hive_Darwin_x86_64.tar.gz"
-      sha256 "ca2b8ba8b4e2d402e76be44d0c525c44efd65e6be3ad3f70e70781480fa35bdd"
+      sha256 "bdef49bdc49e223b7b994ce4c613b485bc973a4949fe70765ff6f67fdf75610f"
     end
     on_arm do
       url "https://github.com/colonyops/hive/releases/download/v#{version}/hive_Darwin_arm64.tar.gz"
-      sha256 "6f7b5f8d92fe7f1a7b032d4e56bc6b088d98e8e5790e245d3842121116f566d4"
+      sha256 "1e238fa14a40219c467108f1ab195c8cb9036d427d2bca82e000ebf70d4d44cf"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/colonyops/hive/releases/download/v#{version}/hive_Linux_x86_64.tar.gz"
-      sha256 "4ad136e5a1d753891e4a78464371cb262f9647fb0627fad4ebc3e333c632d89f"
+      sha256 "a8f44243666bacf6c1ec3f69d91096bfb5f08af22c15902025adc07f2363512e"
     end
     on_arm do
       url "https://github.com/colonyops/hive/releases/download/v#{version}/hive_Linux_arm64.tar.gz"
-      sha256 "9cd822718eef18fce918da0a5b753832e5d9f82cd9b093a2d043dd1c621223ac"
+      sha256 "5bb97579e17c84f658f3706a5018528b606037ac587b976c846c49b0f8c53a89"
     end
+  end
+
+  postflight do
+    if OS.mac?
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/hive"]
+    end
+  end
+
+  caveats do
+    "This binary is not signed or notarized. The installer removes the macOS quarantine attribute automatically."
+    ""
+    "Requires tmux and git to be installed."
   end
 
   # No zap stanza required
