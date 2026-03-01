@@ -3,7 +3,7 @@ cask "hive" do
   name "hive"
   desc "CLI/TUI for managing multiple AI agent sessions in isolated git environments"
   homepage "https://github.com/colonyops/hive"
-  version "0.36.0"
+  version "0.37.0"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,22 +14,22 @@ cask "hive" do
   on_macos do
     on_intel do
       url "https://github.com/colonyops/hive/releases/download/v#{version}/hive_Darwin_x86_64.tar.gz"
-      sha256 "6dfad5f74d4b64ede935f5fac4367de3026746883a90f397953da1416e966ad8"
+      sha256 "c2bd415ec60e85d5dc1a0cd92d369073227aca65530c9859e09dcd0e708a825a"
     end
     on_arm do
       url "https://github.com/colonyops/hive/releases/download/v#{version}/hive_Darwin_arm64.tar.gz"
-      sha256 "44895a132eb493051043113b10e86018cc7eea236bfe5c67811fac17a267f38a"
+      sha256 "2a03efc905bee2b9171216893fa0ff6336543230a78ec09bd2b3bef3400e3398"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/colonyops/hive/releases/download/v#{version}/hive_Linux_x86_64.tar.gz"
-      sha256 "285be5f96e948e9d08c208fb27e1e2c32fcde876726cd67692b26d60348e973c"
+      sha256 "a45f5483cfdd822f4879cfc910a36e5570d5238ba12eb3e5cc926840ee484e30"
     end
     on_arm do
       url "https://github.com/colonyops/hive/releases/download/v#{version}/hive_Linux_arm64.tar.gz"
-      sha256 "5a5130b6851befd56059a5f189ff09c4d3837d6cb64e8ace182b4544e1290342"
+      sha256 "338e4eda79e6e486d4aa58592152c63f07170fce5deb7404276eef6d3ac51a8a"
     end
   end
 
